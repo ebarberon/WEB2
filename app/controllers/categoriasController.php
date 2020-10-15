@@ -28,5 +28,14 @@ class categoriasController{
         $this->viewCategorias->showAdminLocation();
     }
 
+    function editarCategoria($id_categoria){
+        $this->viewCategorias->editCategoria($id_categoria);
+    }
+
+    function confirmarEdicionCategoria(){
+        $this->modelCategorias->editarCategoria($_POST['input_id_categoria_edit'],$_POST['input_nombre_edit']);
+        $this->viewCategorias->showAdminLocation();
+    }
+
 }
 ?>

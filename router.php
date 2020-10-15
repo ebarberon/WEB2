@@ -52,6 +52,9 @@ switch ($params[0]) {
     case 'editarCategoria':
         $categoriaController->editarCategoria($params[1]);
         break;
+    case'editCategoriaConfirm':
+        $categoriaController->confirmarEdicionCategoria();
+        break;
     case 'login':
         $userController->showLogin();
         break;
