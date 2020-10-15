@@ -53,10 +53,15 @@ class productosController{
         if(!isset($_SESSION['ID_USER'])){
             header("Location: ". BASE_URL . "login");
             die();
-        } 
+        }
+    }
+
+    function confirmarEdicionProducto(){
+        $this->modelProductos->editarProducto($_POST['input_id_producto_edit'],$_POST['input_nombre_edit'],$_POST['input_descripcion_edit'],$_POST['input_id_categoria_edit']);
+        $this->viewProductos->showAdminLocation();
     }
 
 
-
 }
-?>
+
+

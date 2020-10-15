@@ -46,6 +46,12 @@ switch ($params[0]) {
     case 'editarProducto':
         $productoController->editarProducto($params[1],$params[2],$params[3],$params[4]);
         break;
+    case 'editProductoConfirm':
+        $productoController->confirmarEdicionProducto();
+        break;
+    case 'editarCategoria':
+        $categoriaController->editarCategoria($params[1]);
+        break;
     case 'login':
         $userController->showLogin();
         break;

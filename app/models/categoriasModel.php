@@ -25,6 +25,10 @@ class categoriasModel{
         $query = $this->db->prepare('DELETE FROM categoria WHERE id_categoria=(?)');
         $query->execute([$id_categoria]);
     }
+    function editarCategoria($id_categoria, $nombre){
+        $query = $this->db ->prepare('UPDATE categoria SET nombre=? WHERE id_categoria=?');
+        $query->execute([$nombre,$id_categoria]);
+    }
     
 }
 ?>

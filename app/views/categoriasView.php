@@ -22,5 +22,12 @@ class categoriasView{
 
         $smarty->display('templates/showCategorias.tpl');
     }
+
+    function editCategoria($id_categoria){
+        $smarty = new Smarty();
+        $smarty->assign('id_categoria', $id_categoria);
+
+        $smarty->display('templates/editCategoria.tpl');
+    }
 }
 ?>
