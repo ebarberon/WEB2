@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2020 a las 04:10:15
+-- Tiempo de generación: 30-11-2020 a las 21:48:28
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -63,8 +63,8 @@ INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `id_categoria`) 
 (3, 'Especial', 'salsa de tomate, muzzarella, jamón, morrón, aceituna', 1),
 (4, 'Calabresa', 'salsa de tomate, muzzarella, salame', 1),
 (5, 'Barrigona', 'salsa de tomate, muzzarella, panceta, huevo frito', 1),
-(6, 'De la casa', 'salsa de tomate, muzzarella, champignones,aceitunas negras ', 1),
-(7, 'Carne', 'Carne picada, cebolla, morron, huevo', 2),
+(6, 'De la casa', 'salsa de tomate, muzzarella, champignones, aceitunas negras', 1),
+(7, 'Carne', 'carne picada, cebolla, morron, huevo', 2),
 (8, 'Pollo', 'pollo desmenuzado, crema, cebolla de verdeo', 2),
 (9, 'Jamon y queso', 'jamon, queso muzzarella', 2),
 (10, 'Cebolla y queso', 'cebolla, cebolla de verdeo, queso muzzarella', 2),
@@ -83,15 +83,21 @@ INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `id_categoria`) 
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`id_user`, `email`, `password`) VALUES
-(1, 'admin@admin.com', '$2y$10$a9bq6xCYRawWk3tY2rZH8.LZQt8NWfa4nPBTWyGYrCsTxVMHqpCny');
+INSERT INTO `user` (`id_user`, `email`, `password`, `admin`) VALUES
+(1, 'admin@admin.com', '$2y$10$a9bq6xCYRawWk3tY2rZH8.LZQt8NWfa4nPBTWyGYrCsTxVMHqpCny', 1),
+(4, 'asdasd@asda', '$2y$10$219eCTb2oj8jHjmlVLwyROqvRlcuZrIrUTr5LzqSY4C2xCHbS/OYS', 0),
+(5, 'estebanbarberon@gmail.com', '$2y$10$K70jlp2W8MAWu2fIPEkRWea1cKg4mn3S1Ue0/RzRyUYWJxW.s6s4S', 0),
+(6, 'estebanbarberon1@gmail.com', '$2y$10$uZLuaBJX0xatuRJYjon3XeFRwlVdG0nVING5MneewAJKWai1JirZ6', 0),
+(7, 'echi@echi', '$2y$10$50fXm7/byc1/GqPRFkIM5.T08dQzx4MUqwFbZaKqHePz7cYrW8c.q', 0),
+(8, 'echi1@echi', '$2y$10$BPlNxR4yCNeFW5u8DQ9DveEQpdo/bxJ8hMeFyOrQhrXNbauW.xfGe', 0);
 
 --
 -- Índices para tablas volcadas
@@ -124,19 +130,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas
