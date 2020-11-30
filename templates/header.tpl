@@ -36,7 +36,8 @@
                 {else}
                  </ul>
                 <span class="navbar-text">
-                <a class="nav-link" href="login">Login</a>
+                <a class="nav-link" href="login">Log in</a>
+                <a class="nav-link" href="registration">Sign up</a>
                 </span>   
                 {/if}
             </div>

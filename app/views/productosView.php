@@ -39,7 +39,6 @@ class productosView{
         $smarty->assign('categorias', $categorias);
 
         $smarty->display('templates/showHome.tpl');
-
     }
 
     function editProducto($id_producto, $nombre, $descripcion, $id_categoria, $categorias){

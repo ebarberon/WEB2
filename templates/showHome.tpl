@@ -7,18 +7,18 @@
         {foreach from=$productos item=producto}
             {if $producto->id_categoria == $categoria->id_categoria}
                 <div class="accordion" id="accordionExample">
-    <div class="card">
-        <div class="card-header" id="heading{$producto->id_producto}">
-        <h2 class="mb-0">
-            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{$producto->id_producto}" aria-expanded="true" aria-controls="collapse{$producto->id_producto}">
-            {$producto->nombre}
-            </button>
-        </h2>
-        </div>
+                <div class="card">
+                <div class="card-header" id="heading{$producto->id_producto}">
+                <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{$producto->id_producto}" aria-expanded="true" aria-controls="collapse{$producto->id_producto}">
+                {$producto->nombre}
+                </button>
+                </h2>
+                </div>
 
-        <div id="collapse{$producto->id_producto}" class="collapse" aria-labelledby="heading{$producto->id_producto}" data-parent="#accordionExample">
-            <div class="card-body">
-              ({$categoria->nombre}) | {$producto->descripcion}
+                <div id="collapse{$producto->id_producto}" class="collapse" aria-labelledby="heading{$producto->id_producto}" data-parent="#accordionExample">
+                <div class="card-body">
+                ({$categoria->nombre}) | {$producto->descripcion}
                 </div>
                 </div>
             </div>

@@ -15,14 +15,30 @@ class usersView{
 
     }
 
+    function showSignUp(){
+        $smarty = new Smarty();
+
+        $smarty->display('templates/signUpForm.tpl');
+    }
+
     function showError($msg){
 
         $smarty = new Smarty();
         $smarty->assign('msg', $msg);
 
         $smarty->display('templates/showErrorLogin.tpl');
+    }
 
+    function showErrorSignUp($msg){
 
+        $smarty = new Smarty();
+        $smarty->assign('msg', $msg);
+
+        $smarty->display('templates/showErrorSignUp.tpl');
+    }
+
+    function showHomeLocation(){
+        header("Location: ".BASE_URL."home");
     }
 }
 

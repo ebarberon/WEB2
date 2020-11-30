@@ -23,13 +23,16 @@ class categoriasController{
         $this->viewCategorias->mostrarHeader($categorias);
     }
 
-    function borrarCategoria($id_categoria){
+    function borrarCategoria($params = null){
+        $id_categoria = $params[':ID'];
         $this->modelCategorias->borrarCategoria($id_categoria);
         $this->viewCategorias->showAdminLocation();
     }
 
-    function editarCategoria($id_categoria){
-        $this->viewCategorias->editCategoria($id_categoria);
+    function editarCategoria($params = null){
+        $id_categoria = $params[':ID'];
+        $nombre = $params[':NOMBRE'];
+        $this->viewCategorias->editCategoria($id_categoria, $nombre);
     }
 
     function confirmarEdicionCategoria(){

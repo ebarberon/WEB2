@@ -38,7 +38,7 @@ class usersController{
             $_SESSION['ID_USER']=$user->id_user;
             $_SESSION['EMAIL_USER']=$user->email;
 
-            header("Location: ". BASE_URL.'admin');
+            $this->viewUser->showHomeLocation();
         } else {
             $this->viewUser->showError($msg2);
         }
@@ -51,6 +51,41 @@ class usersController{
         header("Location: ". BASE_URL.'login');
     }
 
+    function showSignUp(){
+        $this->viewUser->showSignUp();
+    }
+
+    function userRegistration(){
+        $inputEmail = ($_POST['email_user']);
+        $inputPassword = ( $_POST['password_user']);
+
+        $msg = "Campos vacios";
+        $msg2 = "Ya hay un usuario registrado con ese email";
+
+        if (empty($inputEmail) || empty($inputPassword)){
+            $this->viewUser->showErrorSignUp($msg);
+            die;
+        } 
+
+        $revisarEmail = $this->modelUser->revisionEmail($inputEmail);
+
+        if (!empty($revisarEmail)){
+            $this->viewUser->showErrorSignUp($msg2);
+            die();
+        }
+
+        $passwordEncriptada = password_hash($inputPassword, PASSWORD_DEFAULT);
+
+        $this->modelUser->registrarUsuario($inputEmail, $passwordEncriptada);
+
+        session_start();
+        $_SESSION['EMAIL_USER']=$inputEmail;
+
+        $this->viewUser->showHomeLocation();
+
+
+        
+    }
 }
 
 ?>

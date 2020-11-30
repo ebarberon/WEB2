@@ -17,11 +17,13 @@ class productosController{
     }
     
     function showHome(){
+        $this->checkLogged();   
         $productos = $this->modelProductos->obtenerProductos();
         $categorias = $this->modelCategorias->obtenerCategorias();
         $this->viewProductos->showHome($productos, $categorias);
     }
-    function showProductos($id_categoria){
+    function showProductos($params = null){
+        $id_categoria = $params[':ID'];
         $productos = $this->modelProductos->obtenerProductos();
         $this->viewProductos->mostrarProductos($productos, $id_categoria);
     }
@@ -38,12 +40,17 @@ class productosController{
         $this->viewProductos->showAdminlocation();
     }
 
-    function borrarProducto($id_producto){
+    function borrarProducto($params = null){
+        $id_producto = $params[':ID'];
         $this->modelProductos->borrarProducto($id_producto);
         $this->viewProductos->showAdminLocation();
     }
 
-    function editarProducto($id_producto, $nombre, $descripcion, $id_categoria){
+    function editarProducto($params = null){
+        $id_producto = $params[':ID'];
+        $nombre = $params[':NOMBRE'];
+        $descripcion = $params[':DESCRIPCION'];
+        $id_categoria = $params[':ID_CATEGORIA'];
         $categorias = $this->modelCategorias->obtenerCategorias();
         $this->viewProductos->editProducto($id_producto, $nombre, $descripcion, $id_categoria, $categorias);
     }
