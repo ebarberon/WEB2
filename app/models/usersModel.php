@@ -26,7 +26,22 @@ class usersModel{
     function registrarUsuario($email, $pass){
         $query=$this->db->prepare('INSERT INTO `user` (`email`, `password`, `admin`) VALUES (?,?,?)');
         $query->execute([$email, $pass, 0]);
+    }
 
+    function obtenerUsuarios(){
+        $query=$this->db->prepare('SELECT*FROM user');
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    function makeAdmin($id_user){
+        $query=$this->db->prepare('UPDATE `user` SET `admin`=? WHERE `id_user`=?');
+        $query->execute('1', $id_user);
+    }
+
+    function makeUser($id_user){
+        $query=$this->db->prepare('UPDATE `user` SET `admin`=? WHERE `id_user` =?');
+        $query->execute('0', $id_user);
     }
 
 }

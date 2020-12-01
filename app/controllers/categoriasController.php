@@ -19,6 +19,7 @@ class categoriasController{
     }
 
     function obtenerCategorias(){
+        $this->check();
         $categorias = $this->modelCategorias->obtenerCategorias();
         $this->viewCategorias->mostrarHeader($categorias);
     }
@@ -40,5 +41,8 @@ class categoriasController{
         $this->viewCategorias->showAdminLocation();
     }
 
+    function check(){
+        session_start();
+    }
 }
 ?>

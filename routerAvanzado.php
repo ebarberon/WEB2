@@ -28,8 +28,13 @@
     $r->addRoute("editarCategoria/:ID/:NOMBRE", "GET", "categoriasController", "editarCategoria");
     $r->addRoute("editCategoriaConfirm", "POST", "categoriasController", "confirmarEdicionCategoria");
     $r->addRoute("logout", "GET", "usersController", "logout");
-
+    $r->addRoute("users", "GET", "usersController", "usersList");
     $r->addRoute("registration", "GET", "usersController", "showSignUp");
+
+    $r->addRoute("makeAdmin/:ID", "GET", "usersController", "makeAdmin");
+    $r->addRoute("makeUser/:ID", "GET", "usersController", "makeUser");
+
+
 
 
     $r->addRoute("userRegistration", "POST", "usersController", "userRegistration");

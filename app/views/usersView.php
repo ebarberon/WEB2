@@ -40,6 +40,13 @@ class usersView{
     function showHomeLocation(){
         header("Location: ".BASE_URL."home");
     }
+
+    function mostrarUsuarios($users){
+        $smarty = new Smarty();
+        $smarty->assign('users', $users);
+
+        $smarty->display('templates/showUsers.tpl');
+    }
 }
 
 ?>

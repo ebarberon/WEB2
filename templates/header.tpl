@@ -26,13 +26,17 @@
                     <a class="nav-link" href="categorias">Productos</a>
                 </li>
                 {if isset($smarty.session.EMAIL_USER)}
-                <li class="nav-item">
-                    <a class="nav-link" href="admin">Administrar</a>
-                </li>
-                </ul>
-                <span class="navbar-text">
-                <a class="nav-link" href="logout">Logout({$smarty.session.EMAIL_USER})</a>
-                </span>
+
+                    {if isset($smarty.session.ADMIN)}
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin">Administrar</a>
+                    </li>
+                    {/if}
+                    </ul>
+
+                    <span class="navbar-text">
+                    <a class="nav-link" href="logout">Logout({$smarty.session.EMAIL_USER})</a>
+                    </span>
                 {else}
                  </ul>
                 <span class="navbar-text">

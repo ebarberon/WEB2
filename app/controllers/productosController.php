@@ -17,7 +17,7 @@ class productosController{
     }
     
     function showHome(){
-        $this->checkLogged();   
+        $this->check();   
         $productos = $this->modelProductos->obtenerProductos();
         $categorias = $this->modelCategorias->obtenerCategorias();
         $this->viewProductos->showHome($productos, $categorias);
@@ -61,6 +61,10 @@ class productosController{
             header("Location: ". BASE_URL . "login");
             die();
         }
+    }
+
+    function check(){
+        session_start();
     }
 
     function confirmarEdicionProducto(){

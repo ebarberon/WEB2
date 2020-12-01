@@ -38,6 +38,10 @@ class usersController{
             $_SESSION['ID_USER']=$user->id_user;
             $_SESSION['EMAIL_USER']=$user->email;
 
+            if($user->admin == 1){
+                $_SESSION['ADMIN']=$user->admin;
+            }
+
             $this->viewUser->showHomeLocation();
         } else {
             $this->viewUser->showError($msg2);
@@ -82,10 +86,35 @@ class usersController{
         $_SESSION['EMAIL_USER']=$inputEmail;
 
         $this->viewUser->showHomeLocation();
+    }
 
-
+    function usersList(){
+        $this->checkLogged();
+        $users = $this->modelUser->obtenerUsuarios();
+        $this->viewUser->mostrarUsuarios($users);
         
     }
+
+    function checkLogged(){
+        session_start();
+        if(!isset($_SESSION['ADMIN'])){
+            header("Location: ". BASE_URL . "login");
+            die();
+        }
+    }
+
+    function makeAdmin($params = null){
+        $id_user = $params[':ID'];
+        $this->modelUser->makeAdmin($id_user);
+        $this->usersList();
+    }
+
+    function makeUser($params = null){
+        $id_user = $params[':ID'];
+        $this->modelUser->makeUser($id_user);
+        $this->usersList();
+    }
+
 }
 
 ?>

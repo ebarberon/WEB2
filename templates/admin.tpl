@@ -51,4 +51,6 @@
   <button type="submit" class="btn btn-primary">Agregar</button>
 </form>
 
+<a href="users" class="btn btn-primary btn-lg active mt-4" role="button" aria-pressed="true">Ver lista de usuarios</a>
+
 {include file="footer.tpl"}
