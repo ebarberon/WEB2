@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-11-2020 a las 21:48:28
+-- Tiempo de generación: 02-12-2020 a las 22:12:05
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -29,16 +29,44 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categoria` (
   `id_categoria` int(11) NOT NULL,
-  `nombre` varchar(40) NOT NULL
+  `nombre_categoria` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `categoria`
 --
 
-INSERT INTO `categoria` (`id_categoria`, `nombre`) VALUES
+INSERT INTO `categoria` (`id_categoria`, `nombre_categoria`) VALUES
 (1, 'Pizzas'),
 (2, 'Empanadas');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comments`
+--
+
+CREATE TABLE `comments` (
+  `id_comments` int(11) NOT NULL,
+  `puntaje` int(11) NOT NULL,
+  `comentario` varchar(255) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `comments`
+--
+
+INSERT INTO `comments` (`id_comments`, `puntaje`, `comentario`, `id_user`, `id_producto`) VALUES
+(8, 3, '123wsd', 5, 1),
+(48, 5, '1234', 1, 14),
+(49, 5, '12345', 1, 14),
+(50, 5, '123456', 1, 14),
+(51, 5, '1234567', 1, 14),
+(65, 5, 'Empanadas', 1, 1),
+(67, 5, 'Hola', 5, 1),
+(68, 4, 'Hola', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -93,11 +121,10 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `email`, `password`, `admin`) VALUES
 (1, 'admin@admin.com', '$2y$10$a9bq6xCYRawWk3tY2rZH8.LZQt8NWfa4nPBTWyGYrCsTxVMHqpCny', 1),
-(4, 'asdasd@asda', '$2y$10$219eCTb2oj8jHjmlVLwyROqvRlcuZrIrUTr5LzqSY4C2xCHbS/OYS', 0),
 (5, 'estebanbarberon@gmail.com', '$2y$10$K70jlp2W8MAWu2fIPEkRWea1cKg4mn3S1Ue0/RzRyUYWJxW.s6s4S', 0),
-(6, 'estebanbarberon1@gmail.com', '$2y$10$uZLuaBJX0xatuRJYjon3XeFRwlVdG0nVING5MneewAJKWai1JirZ6', 0),
-(7, 'echi@echi', '$2y$10$50fXm7/byc1/GqPRFkIM5.T08dQzx4MUqwFbZaKqHePz7cYrW8c.q', 0),
-(8, 'echi1@echi', '$2y$10$BPlNxR4yCNeFW5u8DQ9DveEQpdo/bxJ8hMeFyOrQhrXNbauW.xfGe', 0);
+(16, 'user1@user', '$2y$10$hvuE.cQ88nACXj575WtRI.bXxyieoXzaKa8DrplOrJWxbcHwDQRUe', 1),
+(17, 'user2@user', '$2y$10$FSpj2MlWlU6lKCpo5ULIxuNmo5zzSEra3gbVhU4x5MpMJ5fHqrQHK', 0),
+(18, 'user3@user', '$2y$10$/5u/nLRXBKZn8k0N9qoan.rZe/PjYQYU9ypNnKpgnjhu1S.OeHbUm', 0);
 
 --
 -- Índices para tablas volcadas
@@ -108,6 +135,14 @@ INSERT INTO `user` (`id_user`, `email`, `password`, `admin`) VALUES
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id_categoria`);
+
+--
+-- Indices de la tabla `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id_comments`),
+  ADD KEY `idx_producto` (`id_producto`),
+  ADD KEY `idx_user` (`id_user`);
 
 --
 -- Indices de la tabla `producto`
@@ -133,20 +168,33 @@ ALTER TABLE `categoria`
   MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
+-- AUTO_INCREMENT de la tabla `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id_comments` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+
+--
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `comments`
+--
+ALTER TABLE `comments`
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`),
+  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
 
 --
 -- Filtros para la tabla `producto`
