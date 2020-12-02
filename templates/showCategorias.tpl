@@ -2,8 +2,8 @@
 
 {foreach from=$collection item=item}
     <div class="jumbotron mt-3">
-    <h1 class="display-4">{$item->nombre}</h1>
-    <p class="lead">Probá las mejores  {$item->nombre|lower} de la ciudad!! </p>
+    <h1 class="display-4">{$item->nombre_categoria}</h1>
+    <p class="lead">Probá las mejores  {$item->nombre_categoria|lower} de la ciudad!! </p>
     <hr class="my-4">
     <a class="btn btn-primary btn-lg" href="categoria/{$item->id_categoria}" role="button">Ver</a>
     </div>

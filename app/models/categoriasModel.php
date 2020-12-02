@@ -17,7 +17,7 @@ class categoriasModel{
     }
 
     function insertarCategoria($nombre){
-        $query = $this->db->prepare('INSERT INTO categoria (nombre) VALUE (?)');
+        $query = $this->db->prepare('INSERT INTO categoria (nombre_categoria) VALUE (?)');
         $query->execute([$nombre]);
     }
 
@@ -26,7 +26,7 @@ class categoriasModel{
         $query->execute([$id_categoria]);
     }
     function editarCategoria($id_categoria, $nombre){
-        $query = $this->db ->prepare('UPDATE categoria SET nombre=? WHERE id_categoria=?');
+        $query = $this->db ->prepare('UPDATE categoria SET nombre_categoria=? WHERE id_categoria=?');
         $query->execute([$nombre,$id_categoria]);
     }
     

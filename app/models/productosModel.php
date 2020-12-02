@@ -9,11 +9,10 @@ class productosModel{
     }
     
     function obtenerProductos(){
-        $query = $this->db->prepare('SELECT * FROM producto');
+        $query = $this->db->prepare('SELECT producto.id_producto, producto.nombre, producto.descripcion, producto.id_categoria, categoria.nombre_categoria FROM producto INNER JOIN categoria ON producto.id_categoria = categoria.id_categoria');
         $query->execute();
-        $productos = $query->fetchAll(PDO::FETCH_OBJ);
-    
-        return $productos;
+        return $query->fetchAll(PDO::FETCH_OBJ);
+
     }
 
     function insertarProducto($nombre,$descripcion,$id_categoria){

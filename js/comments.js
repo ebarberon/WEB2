@@ -33,8 +33,8 @@ function getComments() {
 
     for (let comment of comments) {
         if ((usuario != null) && (usuario.dataset.admin == 1)) {
-            container.innerHTML += `<li class="list-group-item d-flex justify-content-between align-items-center">${comment.email}- ${comment.comentario} <button type="button" id="delete-comment" class="btn btn-warning ml-2">Eliminar</button>
-                                    <span class="badge badge-primary badge-pill">${comment.puntaje}</span>
+            container.innerHTML += `<li class="list-group-item d-flex justify-content-between align-items-center"><span class="text-primary">${comment.email}</span> ${comment.comentario} <button type="button" id="delete-comment" class="btn btn-warning ml-2">Eliminar</button>
+                                    <span class="badge badge-primary badge-pill">Calificación: ${comment.puntaje}</span>
                                     </li>`;
             let botonBorrar=document.querySelectorAll("#delete-comment"); 
             for (let j=0;j<botonBorrar.length;j++) {
@@ -44,8 +44,8 @@ function getComments() {
                 });
             }
         } else {
-            container.innerHTML += `<li class="list-group-item d-flex justify-content-between align-items-center">${comment.email} - ${comment.comentario} 
-                                    <span class="badge badge-primary badge-pill">${comment.puntaje}</span>
+            container.innerHTML += `<li class="list-group-item d-flex justify-content-between align-items-center"><span class="text-primary">${comment.email}</span> ${comment.comentario} 
+                                    <span class="badge badge-primary badge-pill">Calificación: ${comment.puntaje}</span>
                                     </li>`;
         }
     }

@@ -4,7 +4,7 @@
   <h2>Productos</h2>
   <ul class='list-group mt-3'>
   {foreach from=$productos item=item}
-      <li class='list-group-item'>{$item->nombre}<button type="button" class="btn btn-warning ml-2"><a href="editarProducto/{$item->id_producto}/{$item->nombre}/{$item->descripcion}/{$item->id_categoria}">Editar</a></button><button type="button" class="btn btn-danger ml-2"><a href="borrarProducto/{$item->id_producto}">Borrar</a></button></li>
+      <li class='list-group-item'>{$item->nombre}({$item->nombre_categoria})<button type="button" class="btn btn-warning ml-2"><a href="editarProducto/{$item->id_producto}/{$item->nombre}/{$item->descripcion}/{$item->id_categoria}">Editar</a></button><button type="button" class="btn btn-danger ml-2"><a href="borrarProducto/{$item->id_producto}">Borrar</a></button></li>
   {/foreach}
   </ul>
 </div>
@@ -13,7 +13,7 @@
   <h2>Categorias</h2>
   <ul class='list-group mt-3'>
   {foreach from=$categorias item=item}
-      <li class='list-group-item'>{$item->nombre}<button type="button" class="btn btn-warning ml-2"><a href="editarCategoria/{$item->id_categoria}/{$item->nombre}">Editar</a></button><button type="button" class="btn btn-danger ml-2"><a href="borrarCategoria/{$item->id_categoria}">Borrar</a></button></li>
+      <li class='list-group-item'>{$item->nombre_categoria}<button type="button" class="btn btn-warning ml-2"><a href="editarCategoria/{$item->id_categoria}/{$item->nombre}">Editar</a></button><button type="button" class="btn btn-danger ml-2"><a href="borrarCategoria/{$item->id_categoria}">Borrar</a></button></li>
   {/foreach}
   </ul>
 </div>
@@ -34,7 +34,7 @@
     <label for="exampleFormControlSelect1">Categoria</label>
     <select class="form-control" name="input_id_categoria">
       {foreach from=$categorias item=item}
-        <option value={$item->id_categoria}>{$item->nombre}</option>
+        <option value={$item->id_categoria}>{$item->nombre_categoria}</option>
       {/foreach}
     </select>
   </div>

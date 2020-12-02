@@ -14,7 +14,7 @@
     <label for="exampleFormControlSelect1">Categoria</label>
     <select class="form-control" name="input_id_categoria_edit">
     {foreach from=$categorias item=item}      
-        <option value={$item->id_categoria}>{$item->nombre}</option>
+        <option value={$item->id_categoria}>{$item->nombre_categoria}</option>
     {/foreach}
     </select>
     </div>

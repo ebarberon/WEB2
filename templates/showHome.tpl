@@ -3,7 +3,7 @@
 
 <ul class="list-group mt-5">
     {foreach from=$categorias item=categoria}
-        <li class="list-group-item list-group-item-primary">{$categoria->nombre}</li>
+        <li class="list-group-item list-group-item-primary">{$categoria->nombre_categoria}</li>
         {foreach from=$productos item=producto}
             {if $producto->id_categoria == $categoria->id_categoria}
                 <div class="accordion" id="accordionExample">
