@@ -28,6 +28,12 @@ class productosController{
         $this->viewProductos->mostrarProductos($productos, $id_categoria);
     }
 
+    function showProducto($params = null){
+        $this->check(); 
+        $id_producto = $params[':ID'];
+        $this->viewProductos->mostrarProducto($id_producto);
+    }
+
     function showAdmin(){
         $this->checkLogged();
         $productos = $this->modelProductos->obtenerProductos();

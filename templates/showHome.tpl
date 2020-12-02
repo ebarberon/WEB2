@@ -19,6 +19,7 @@
                 <div id="collapse{$producto->id_producto}" class="collapse" aria-labelledby="heading{$producto->id_producto}" data-parent="#accordionExample">
                 <div class="card-body">
                 ({$categoria->nombre}) | {$producto->descripcion}
+                <button type="button" class="btn btn-warning ml-2"><a href="comments/{$producto->id_producto}">Ver comentarios</a></button>
                 </div>
                 </div>
             </div>

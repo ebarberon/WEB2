@@ -53,7 +53,12 @@ class productosView{
 
     }
 
-
+    function mostrarProducto($id_producto) {
+        $smarty = new Smarty();
+        $smarty->assign('id_producto', $id_producto);
+        
+        $smarty->display('templates/showProducto.tpl');
+    }
 
 }
 ?>

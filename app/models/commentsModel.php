@@ -14,10 +14,10 @@ class commentsModel {
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
-    function getComment($id){
-        $query = $this->db->prepare('SELECT * FROM comments WHERE id_comments=?');
+    function getCommentsOfID($id){
+        $query = $this->db->prepare('SELECT comments.id_comments , comments.puntaje, comments.comentario, user.email, comments.id_producto FROM comments INNER JOIN user ON comments.id_user = user.id_user  WHERE id_producto=?');
         $query->execute([$id]);
-        return $query->fetch(PDO::FETCH_OBJ);
+        return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
     function deleteComment($id){

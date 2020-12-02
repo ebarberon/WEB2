@@ -26,6 +26,7 @@ class usersModel{
     function registrarUsuario($email, $pass){
         $query=$this->db->prepare('INSERT INTO `user` (`email`, `password`, `admin`) VALUES (?,?,?)');
         $query->execute([$email, $pass, 0]);
+        return $this->db->lastInsertId();
     }
 
     function obtenerUsuarios(){
@@ -50,4 +51,3 @@ class usersModel{
     }
 
 }
-?>

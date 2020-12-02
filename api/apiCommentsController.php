@@ -16,10 +16,10 @@ class apiCommentsController extends apiController {
         $this->view->response($comments, '200');
     }
 
-    function getComment($params = null){
+    function getCommentsOfID($params = null){
         $id = $params[':ID'];
-        $comment = $this->model->getComment($id);
-        $this->view->response($comment, '200');
+        $comments = $this->model->getCommentsOfID($id);
+        $this->view->response($comments, '200');
     }
 
     function deleteComment($params = null){
@@ -29,7 +29,6 @@ class apiCommentsController extends apiController {
 
     function insertComment(){
         $body = $this->getData();
-
         $this->model->insertComment($body->puntaje,$body->comentario,$body->id_user,$body->id_producto);
     }
 

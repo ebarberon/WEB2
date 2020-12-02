@@ -24,6 +24,8 @@
 
     $r->addRoute("categorias", "GET", "categoriasController", "obtenerCategorias");
     $r->addRoute("categoria/:ID", "GET", "productosController", "showProductos");
+    $r->addRoute("comments/:ID", "GET", "productosController", "showProducto");
+
 
     $r->addRoute("insertProducto", "POST", "productosController", "insertProducto");
     $r->addRoute("insertCategoria", "POST", "categoriasController", "insertCategoria");
@@ -40,17 +42,8 @@
     $r->addRoute("deleteUser/:ID", "GET", "usersController", "deleteUser");
 
 
-    //Hay que borrar
-    $r->addRoute("verifyUser", "POST", "UserController", "VerifyUser");
-    $r->addRoute("mermelada", "GET", "TasksController", "Home");
-    $r->addRoute("tasks-csr", "GET", "TasksController", "TasksCSR");
-
-
     //Ruta por defecto.
     $r->setDefaultRoute("productosController", "showHome");
-
-    //Advance
-    $r->addRoute("autocompletar", "GET", "TasksAdvanceController", "AutoCompletar");
 
     //run
     $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']); 

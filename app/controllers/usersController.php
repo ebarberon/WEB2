@@ -80,9 +80,10 @@ class usersController{
 
         $passwordEncriptada = password_hash($inputPassword, PASSWORD_DEFAULT);
 
-        $this->modelUser->registrarUsuario($inputEmail, $passwordEncriptada);
+        $userID = $this->modelUser->registrarUsuario($inputEmail, $passwordEncriptada);
 
         session_start();
+        $_SESSION['ID_USER']=$userID;
         $_SESSION['EMAIL_USER']=$inputEmail;
 
         $this->viewUser->showHomeLocation();
