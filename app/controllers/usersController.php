@@ -98,7 +98,7 @@ class usersController{
     function checkLogged(){
         session_start();
         if(!isset($_SESSION['ADMIN'])){
-            header("Location: ". BASE_URL . "login");
+            header("Location: ". BASE_URL . "home");
             die();
         }
     }
@@ -106,13 +106,19 @@ class usersController{
     function makeAdmin($params = null){
         $id_user = $params[':ID'];
         $this->modelUser->makeAdmin($id_user);
-        $this->usersList();
+        header("Location: ". BASE_URL . "users");
     }
 
     function makeUser($params = null){
         $id_user = $params[':ID'];
         $this->modelUser->makeUser($id_user);
-        $this->usersList();
+        header("Location: ". BASE_URL . "users");
+    }
+
+    function deleteUser($params = null){
+        $id_user = $params[':ID'];
+        $this->modelUser->deleteUser($id_user);
+        header("Location: ". BASE_URL . "users");
     }
 
 }

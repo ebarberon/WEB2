@@ -57,8 +57,8 @@ class productosController{
 
     function checkLogged(){
         session_start();
-        if(!isset($_SESSION['ID_USER'])){
-            header("Location: ". BASE_URL . "login");
+        if(!isset($_SESSION['ADMIN'])){
+            header("Location: ". BASE_URL . "home");
             die();
         }
     }

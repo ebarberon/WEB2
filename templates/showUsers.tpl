@@ -12,7 +12,7 @@
              <button type="button" class="btn btn-warning ml-2"><a href="makeAdmin/{$item->id_user}">Hacer administrador</a></button>
         {/if}
       
-      <button type="button" class="btn btn-danger ml-2"><a href="#">Eliminar usuario</a></button>
+      <button type="button" class="btn btn-danger ml-2"><a href="deleteUser/{$item->id_user}">Eliminar usuario</a></button>
       </li>
   {/foreach}
   </ul>

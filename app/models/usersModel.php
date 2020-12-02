@@ -36,12 +36,17 @@ class usersModel{
 
     function makeAdmin($id_user){
         $query=$this->db->prepare('UPDATE `user` SET `admin`=? WHERE `id_user`=?');
-        $query->execute('1', $id_user);
+        $query->execute(['1', $id_user]);
     }
 
     function makeUser($id_user){
         $query=$this->db->prepare('UPDATE `user` SET `admin`=? WHERE `id_user` =?');
-        $query->execute('0', $id_user);
+        $query->execute(['0', $id_user]);
+    }
+
+    function deleteUser($id_user){
+        $query=$this->db->prepare('DELETE FROM `user` WHERE `id_user` =?');
+        $query->execute([$id_user]);
     }
 
 }
