@@ -39,6 +39,8 @@
     <p id="mensaje"></p>
     <button type="submit" class="btn btn-primary">Enviar comentario</button>
     </form>
+{else}
+    <h3>Registrate y dejanos tu comentario</h3> 
 {/if}
 
 <script src="js/comments.js"></script>

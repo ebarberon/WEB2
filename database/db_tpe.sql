@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-12-2020 a las 22:12:05
+-- Tiempo de generación: 03-12-2020 a las 02:50:59
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -59,14 +59,15 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id_comments`, `puntaje`, `comentario`, `id_user`, `id_producto`) VALUES
-(8, 3, '123wsd', 5, 1),
-(48, 5, '1234', 1, 14),
-(49, 5, '12345', 1, 14),
-(50, 5, '123456', 1, 14),
-(51, 5, '1234567', 1, 14),
-(65, 5, 'Empanadas', 1, 1),
-(67, 5, 'Hola', 5, 1),
-(68, 4, 'Hola', 1, 1);
+(86, 5, 'Hola', 1, 4),
+(87, 5, 'Muy rico', 22, 1),
+(88, 5, 'Muy rico\n', 22, 4),
+(89, 2, 'Floja', 22, 5),
+(90, 5, 'Rica', 21, 2),
+(91, 5, 'Muy bien', 21, 5),
+(92, 1, 'Vino quemada', 21, 6),
+(93, 5, 'Excelente', 20, 3),
+(94, 5, 'Espectacular\n', 20, 2);
 
 -- --------------------------------------------------------
 
@@ -121,10 +122,12 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `email`, `password`, `admin`) VALUES
 (1, 'admin@admin.com', '$2y$10$a9bq6xCYRawWk3tY2rZH8.LZQt8NWfa4nPBTWyGYrCsTxVMHqpCny', 1),
-(5, 'estebanbarberon@gmail.com', '$2y$10$K70jlp2W8MAWu2fIPEkRWea1cKg4mn3S1Ue0/RzRyUYWJxW.s6s4S', 0),
 (16, 'user1@user', '$2y$10$hvuE.cQ88nACXj575WtRI.bXxyieoXzaKa8DrplOrJWxbcHwDQRUe', 1),
 (17, 'user2@user', '$2y$10$FSpj2MlWlU6lKCpo5ULIxuNmo5zzSEra3gbVhU4x5MpMJ5fHqrQHK', 0),
-(18, 'user3@user', '$2y$10$/5u/nLRXBKZn8k0N9qoan.rZe/PjYQYU9ypNnKpgnjhu1S.OeHbUm', 0);
+(18, 'user3@user', '$2y$10$/5u/nLRXBKZn8k0N9qoan.rZe/PjYQYU9ypNnKpgnjhu1S.OeHbUm', 0),
+(20, 'user4@user', '$2y$10$VCoOtbUGXiow.WMZh.zCt.Z/vtyNe4oT.h4XA3QTHsTPtFA7rcPYS', 0),
+(21, 'user5@user', '$2y$10$Urr24NCKo1qZNqd6wVVlsOfR90xR0JURiB352FlvCm9mzOaEbo5zi', 0),
+(22, 'user6@user', '$2y$10$2dq1c.YDSQ8yLJ0qNtlk2.FWc.hTnlswHMiFlphVEytNExcI8IJJW', 0);
 
 --
 -- Índices para tablas volcadas
@@ -171,7 +174,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id_comments` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id_comments` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
@@ -183,7 +186,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Restricciones para tablas volcadas

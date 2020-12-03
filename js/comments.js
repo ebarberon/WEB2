@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (usuario != null) {
         document.querySelector('#form-comment').addEventListener('submit', e => {
-            // evita el envio del form default
             e.preventDefault();
 
             addComment();

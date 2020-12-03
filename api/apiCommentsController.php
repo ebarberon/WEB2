@@ -11,15 +11,17 @@ class apiCommentsController extends apiController {
         $this->view = new apiView();
     }
 
-    function getAllComments(){
-        $comments = $this->model->getAllComments();
-        $this->view->response($comments, '200');
-    }
-
     function getCommentsOfID($params = null){
         $id = $params[':ID'];
         $comments = $this->model->getCommentsOfID($id);
         $this->view->response($comments, '200');
+        
+        //Con este codigo las paginas sin comentarios se nos llenaban de comentarios indefinidos y no supimos resolverlo
+        // if ($comments) {
+        //     $this->view->response($comments, '200');
+        // } else {
+        //     $this->view->response("No existe ese producto", 404);
+        // }
     }
 
     function deleteComment($params = null){
@@ -29,7 +31,15 @@ class apiCommentsController extends apiController {
 
     function insertComment(){
         $body = $this->getData();
-        $this->model->insertComment($body->puntaje,$body->comentario,$body->id_user,$body->id_producto);
+        $id = $this->model->insertComment($body->puntaje,$body->comentario,$body->id_user,$body->id_producto);
+
+        if ($id > 0){
+            $this->view->response("Se agrego el comentario $id correctamente", 201);
+        } else {
+            $this->view->response("No se pudo insertar el comentario", 500);
+        }
+
+
     }
 
 }

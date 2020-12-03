@@ -28,6 +28,7 @@ class commentsModel {
     function insertComment($puntaje,$comentario,$id_user,$id_producto){
         $query = $this->db->prepare('INSERT INTO comments (puntaje, comentario, id_user, id_producto) VALUES (?,?,?,?) ');
         $query->execute([$puntaje,$comentario,$id_user,$id_producto]);
+        return $this->db->lastInsertId();
     }
 
 }
